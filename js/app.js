@@ -43,7 +43,7 @@ export function switchView(targetMode) {
   });
 
   // Show selected view
-  const targetSection = document.getElementById(`view-${targetMode}`);
+  const targetSection = document.getElementById(targetMode);
   if (targetSection) {
     targetSection.classList.remove('hidden');
   }
