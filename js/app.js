@@ -52,8 +52,12 @@ export function switchView(targetMode) {
 
   // Show selected view
   const targetSection = document.getElementById(targetMode);
+  console.log('Target section found in DOM:', targetSection);
+
   if (targetSection) {
     targetSection.classList.remove('hidden');
+  } else {
+    console.warn(`No element found with id="${targetMode}"`);
   }
 
   // Initialize studio engine when entering pixel mode
