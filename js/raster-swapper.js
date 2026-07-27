@@ -3,7 +3,7 @@
  * Performs bucket flood fills and global color tolerance replacements on pixel buffers.
  */
 
-import { getActiveColor } from './palette-donut.js';
+import { getActiveColor } from './palette.js';
 
 let canvas = null;
 let ctx = null;
