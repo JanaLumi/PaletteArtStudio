@@ -53,9 +53,13 @@ export function switchView(targetMode) {
     console.warn(`No element found with id="${targetMode}"`);
   }
 
-  // Initialize studio engine when entering pixel mode
+  // Initialize view engines
   if (targetMode === 'pixel') {
-    initPixelStudio('canvas-container', 32, 32);
+    initPixelStudio('canvas-container', 'palette-container', 32, 32);
+  } else if (targetMode === 'raster') {
+    initRasterStudio();
+  } else if (targetMode === 'vector') {
+    initVectorStudio();
   }
 }
 
