@@ -11,14 +11,21 @@ let activeThemes = ['Theme 1'];
 document.addEventListener('DOMContentLoaded', () => {
   // Global click listener for navigation buttons and app actions
   document.addEventListener('click', (e) => {
+    console.log('Clicked element:', e.target, 'Found modeTarget:', modeTarget);
     // 1. Navigation: Handle landing page buttons reading data-mode
     const navBtn = e.target.closest('[data-mode]');
+    if (modeTarget) {
+      const targetMode = modeTarget.dataset.mode;
+      console.log('Target mode detected:', targetMode);
+      switchView(targetMode);
+      return;
+    }
+/*
     if (navBtn) {
       const targetMode = navBtn.dataset.mode; // e.g., "pixel" or "palette"
       switchView(targetMode);
       return;
-    }
-
+    } */
     // 2. Navigation: Handle generic back buttons
     if (e.target.closest('.btn-back')) {
       switchView('landing');
@@ -37,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Switches active section view and initializes engines dynamically
  */
 export function switchView(targetMode) {
+  console.log('switchView called with:', targetMode);
   // Hide all view sections
   document.querySelectorAll('.view').forEach(section => {
     section.classList.add('hidden');
