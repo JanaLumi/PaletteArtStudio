@@ -4,6 +4,8 @@
 
 import { getContrastColor, generateCSV } from './csv-parser.js';
 import { initPixelStudio, extractGroupsFromCanvas, updateLabelMemory } from './pixel-studio.js';
+import { initRasterStudio } from './raster-studio.js';
+import { initVectorStudio } from './vector-studio.js';
 
 let activePalette = [];
 let activeThemes = ['Theme 1'];
@@ -55,7 +57,7 @@ export function switchView(targetMode) {
 
   // Initialize view engines
   if (targetMode === 'pixel') {
-    initPixelStudio('canvas-container', 'palette-container', 32, 32);
+    initPixelStudio('canvas-container', 32, 32);
   } else if (targetMode === 'raster') {
     initRasterStudio();
   } else if (targetMode === 'vector') {
