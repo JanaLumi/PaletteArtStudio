@@ -9,16 +9,50 @@ let activePalette = [];
 let activeThemes = ['Theme 1'];
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPixelStudio();
-
-  // Attach "Finish Base Image" handler
+  // Global click listener for navigation buttons and app actions
   document.addEventListener('click', (e) => {
+    // 1. Navigation: Handle landing page buttons reading data-mode
+    const navBtn = e.target.closest('.btn-primary[data-mode]');
+    if (navBtn) {
+      const targetMode = navBtn.dataset.mode; // e.g., "pixel" or "palette"
+      switchView(targetMode);
+      return;
+    }
+
+    // 2. Navigation: Handle generic back buttons
+    if (e.target.closest('.btn-back')) {
+      switchView('landing');
+      return;
+    }
+
+    // 3. Action: Handle "Finish Base Image" extraction button
     if (e.target && e.target.id === 'btn-finish-base') {
       activePalette = extractGroupsFromCanvas();
       renderGroupTable(activePalette, activeThemes);
     }
   });
 });
+
+/**
+ * Switches active section view and initializes engines dynamically
+ */
+export function switchView(targetMode) {
+  // Hide all view sections
+  document.querySelectorAll('.view').forEach(section => {
+    section.classList.add('hidden');
+  });
+
+  // Show selected view
+  const targetSection = document.getElementById(`view-${targetMode}`);
+  if (targetSection) {
+    targetSection.classList.remove('hidden');
+  }
+
+  // Initialize studio engine when entering pixel mode
+  if (targetMode === 'pixel') {
+    initPixelStudio('canvas-container', 32, 32);
+  }
+}
 
 /**
  * Renders space-saving group textboxes styled with base hex backgrounds & dynamic text contrast
