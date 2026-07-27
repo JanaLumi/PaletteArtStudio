@@ -1,5 +1,5 @@
 /**
- * Donut Palette Engine
+ * Palette Engine
  * Draws a radial arc color picker on HTML5 Canvas.
  */
 
