@@ -59,9 +59,9 @@ export function switchView(targetMode) {
   if (targetMode === 'pixel') {
     initPixelStudio('canvas-container', 32, 32);
   } else if (targetMode === 'raster') {
-    initRasterStudio();
+    initRasterStudio('canvas-container', null);
   } else if (targetMode === 'vector') {
-    initVectorStudio();
+    initVectorStudio('canvas-container', null);
   }
 }
 
