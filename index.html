@@ -34,29 +34,29 @@
   <main id="app-container">
     
     <!-- Landing Mode Selector -->
-    <section id="view-landing" class="landing-grid">
+    <section id="view-landing" class="landing-grid" role="button" tabindex="0">
       <div class="mode-card" data-mode="pixel">
         <div class="card-icon">🎨</div>
         <h2>Pixel Art Studio</h2>
         <p>Low-res pixel drawing & real-time live palette mapping.</p>
         <span class="file-tags">BMP, PNG</span>
-        <button class="btn-primary">Open Studio</button>
+        <span class="btn-primary" data-mode="pixel">Open Studio</button>
       </div>
 
-      <div class="mode-card" data-mode="raster">
+      <div class="mode-card" data-mode="raster" role="button" tabindex="0">
         <div class="card-icon">🖌️</div>
         <h2>Raster Swapper</h2>
         <p>Flood-fill bucket swaps with color tolerance control.</p>
         <span class="file-tags">PNG, JPG, BMP, GIF</span>
-        <button class="btn-primary">Upload Raster</button>
+        <span class="btn-primary">Upload Raster</button>
       </div>
 
-      <div class="mode-card" data-mode="vector">
+      <div class="mode-card" data-mode="vector" role="button" tabindex="0">
         <div class="card-icon">📐</div>
         <h2>Vector Theme Engine</h2>
         <p>Parse SVG tags and swap color sets instantly.</p>
         <span class="file-tags">SVG</span>
-        <button class="btn-primary">Upload SVG</button>
+        <span class="btn-primary">Upload SVG</button>
       </div>
     </section>
 
