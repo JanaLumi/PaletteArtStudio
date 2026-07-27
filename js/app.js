@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Global click listener for navigation buttons and app actions
   document.addEventListener('click', (e) => {
     // 1. Navigation: Handle landing page buttons reading data-mode
-    const navBtn = e.target.closest('.btn-primary[data-mode]');
+    const navBtn = e.target.closest('[data-mode]');
     if (navBtn) {
       const targetMode = navBtn.dataset.mode; // e.g., "pixel" or "palette"
       switchView(targetMode);
