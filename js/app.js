@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     console.log('Clicked element:', e.target, 'Found modeTarget:', modeTarget);
     // 1. Navigation: Handle landing page buttons reading data-mode
-    const navBtn = e.target.closest('[data-mode]');
+    const modeTarget = e.target.closest('[data-mode]');
     if (modeTarget) {
       const targetMode = modeTarget.dataset.mode;
       console.log('Target mode detected:', targetMode);
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 /*
-    if (navBtn) {
-      const targetMode = navBtn.dataset.mode; // e.g., "pixel" or "palette"
+    if (modeTarget) {
+      const targetMode = modeTarget.dataset.mode; // e.g., "pixel" or "palette"
       switchView(targetMode);
       return;
     } */
