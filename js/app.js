@@ -11,21 +11,14 @@ let activeThemes = ['Theme 1'];
 document.addEventListener('DOMContentLoaded', () => {
   // Global click listener for navigation buttons and app actions
   document.addEventListener('click', (e) => {
-    console.log('Clicked element:', e.target, 'Found modeTarget:', modeTarget);
     // 1. Navigation: Handle landing page buttons reading data-mode
-    const modeTarget = e.target.closest('[data-mode]');
-    if (modeTarget) {
-      const targetMode = modeTarget.dataset.mode;
-      console.log('Target mode detected:', targetMode);
-      switchView(targetMode);
-      return;
+    const card = e.target.closest('[data-mode]');
+    if (card) {
+      console.log('Card detected:', card, 'Mode:', card.dataset.mode);
+      switchView(card.dataset.mode);
+      return
     }
-/*
-    if (modeTarget) {
-      const targetMode = modeTarget.dataset.mode; // e.g., "pixel" or "palette"
-      switchView(targetMode);
-      return;
-    } */
+
     // 2. Navigation: Handle generic back buttons
     if (e.target.closest('.btn-back')) {
       switchView('landing');
