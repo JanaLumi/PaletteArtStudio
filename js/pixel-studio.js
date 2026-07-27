@@ -3,7 +3,7 @@
  * and custom label persistence across rescans.
  */
 
-import { getActiveColor } from './palette-donut.js';
+import { getActiveColor } from './palette.js';
 
 let canvas = null;
 let ctx = null;
