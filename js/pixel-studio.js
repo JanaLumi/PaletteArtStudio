@@ -17,6 +17,7 @@ const labelMemory = new Map();
 
 export function initPixelStudio(containerId = 'canvas-container', w = 32, h = 32) {
   const container = document.getElementById(containerId);
+  const paletteContainer = document.getElementById('palette-container');
   if (!container) return;
 
   gridWidth = w;
@@ -44,6 +45,11 @@ export function initPixelStudio(containerId = 'canvas-container', w = 32, h = 32
   canvas.style.imageRendering = 'pixelated';
 
   attachEvents();
+
+  // Initialize the palette alongside the canvas
+  if (paletteContainer) {
+    initPalette(paletteContainer); // <-- Replace with your project's palette setup function
+  }
 }
 
 function attachEvents() {
