@@ -148,3 +148,66 @@ Divide the JS into clear sub-modules:
 - palette.js
 
 Using standard ES6 native imports (\<script type="module" src="app.js"\>).
+
+- - -
+
+This mobile adaptation ties the entire layout together without adding unnecessary complexity. Adapting hover states into fixed-touch targets and stacking the canvas over the radial palette for smaller screens ensures the app stays comfortable and low-friction on any device.
+
+## **1\. Mobile Layout Adaptations**
+
+To maximize drawing area on phone screens while keeping your tools easy to tap:  
+`+-------------------------------------------------------------+`  
+`|  HEADER (~1cm / 48px): [Opacity Slider]       [🌸 Settings]  |`  
+`+-------------------------------------------------------------+`  
+`|                                                   [ < Shelf ]|`  
+`|                                                              |`  
+`|                       CANVAS VIEW                            |`  
+`|                       (Top Half)                             |`  
+`|                                                              |`  
+`+-------------------------------------------------------------+`  
+`|                                                              |`  
+`|                  FIXED DOUGHNUT PALETTE                         |`  
+`|                      (Bottom Half)                           |`  
+`|                    /---------------\                         |`  
+`|                   /   S1   |   S2   \                        |`  
+`|                  |-------------------|                       |`  
+`|                  |     🌸 Hub        |                       |`  
+`|                  |-------------------|                       |`  
+`|                   \   S3   |   S4   /                        |`  
+`|                    \---------------/                         |`  
+`+-------------------------------------------------------------+`
+
+> * **Fixed Touch Targets:** Hover effects aren't reliable on touchscreens, so the donut palette renders at a **fixed, maximum readable size** across the bottom half of the display. Each arc segment remains thick enough for easy thumb-tapping.  
+> * **Thin Top Header:** Styled to roughly **1 cm (\~48 px high)**, keeping essential controls (like active canvas opacity and the pixel flower settings button) within reach while reserving vertical space for artwork.  
+> * **Floating Shelf Handle:** The right-hand image panel collapses into a **minimal floating tab** anchored just below the top header on the right edge. Tapping it slides out the frame history drawer, then slides back out of the way when closed.
+
+## **2\. Desktop vs. Mobile Layout Summary**
+
+| Layout Component | Desktop View | Mobile View |
+| :---- | :---- | :---- |
+| **Landing Mode Cards** | Side-by-side horizontal cards | Vertically stacked (Pixel Studio on top) |
+| **Main View Orientation** | Canvas on Left / Palette on Right | Canvas on Top Half / Palette on Bottom Half |
+| **Donut Palette** | Scales up dynamically on hover | Fixed max-size touch ring |
+| **Image Shelf** | Collapsible right-side panel | Slide-out overlay triggered by a top-right tab |
+
+## **Complete Feature Specification**
+
+Now that all elements have been mapped out, here is the full blueprint for reference:
+
+> 1. **Triple Mode Engine:**  
+   * *Pixel Studio:* BMP/PNG support, live palette mapping, pixel drawing tools, and local project auto-saving.  
+   * *Raster Swapper:* PNG/JPG flood-fill with configurable color tolerance matching.  
+   * *Vector Engine:* SVG class/tag parsing with single-click theme updates.  
+> 2. **Low Friction Transparency:**  
+   * Active canvas opacity range slider along the header bar.  
+   * Allows direct, aligned drawing over background reference layers or previous frames without switching views.  
+> 3. **Radial Donut Palette:**  
+   * Central hub displaying selected color names and details.  
+   * Large, arc-shaped swatches for quick color access.  
+   * Hover-scaling on desktop (with a toggle in settings to turn off); fixed touch ring on mobile.  
+> 4. **Local Storage:**  
+   * IndexedDB in-browser auto-saving to prevent data loss.  
+   * Clean .json project file import/export for offline offline backups.  
+> 5. **Clean UI & Theme:**  
+   * Warm pixel flower settings icon 🌸 replacing industrial gears.  
+   * Responsive layouts tuned for both desktop monitors and touch screens.
