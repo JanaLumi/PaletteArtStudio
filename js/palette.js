@@ -8,7 +8,7 @@ let ctx = null;
 let paletteData = [];
 let activeColorIndex = 0;
 
-export function initPaletteDonut(containerId = 'palette-container', initialPalette = []) {
+export function initPalette(containerId = 'palette-container', initialPalette = []) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
