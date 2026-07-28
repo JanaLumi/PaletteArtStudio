@@ -141,6 +141,10 @@ Instead of forcing complex selection tools immediately, the cleanest way to hand
 
 ### **2\. File Organization Options**
 
-Would you prefer to write all the logic in one single app.js file, or divide the JS into clear sub-modules (e.g., pixel-engine.js, vector-engine.js, palette-donut.js) using standard ES6 native imports (\<script type="module" src="app.js"\>)?  
-Dividing into ES6 modules keeps each engine isolated while still avoiding build tools or external bundlers like Webpack or Vite.  
-Let me know your preference on the JS structure, and we can start laying down the HTML scaffold and core CSS variables\!
+divide the JS into clear sub-modules:
+- pixel-studio.js
+- raster-studio.js
+- vector-studio.js
+- palette.js
+
+using standard ES6 native imports (\<script type="module" src="app.js"\>).
