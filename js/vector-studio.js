@@ -6,7 +6,7 @@
 let svgContainer = null;
 let currentSvgDoc = null;
 
-export function initVectorEngine(containerId = 'canvas-container', svgString = null) {
+export function initVectorStudio(containerId = 'canvas-container', svgString = null) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
