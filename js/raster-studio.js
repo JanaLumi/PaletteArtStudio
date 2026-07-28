@@ -10,7 +10,7 @@ let ctx = null;
 let imageWidth = 0;
 let imageHeight = 0;
 
-export function initRasterSwapper(containerId = 'canvas-container', imageSrc = null) {
+export function initRasterStudio(containerId = 'canvas-container', imageSrc = null) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
