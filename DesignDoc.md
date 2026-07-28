@@ -124,4 +124,23 @@ Instead of forcing complex selection tools immediately, the cleanest way to hand
 ### Recommendation
 **Holding off on group splitting for the first running version is a smart call.**
 
+- - -
 
+> 1. **Direct Canvas Control:** A native HTML5 \<canvas\> and JS 2D Context (or ImageData arrays) run significantly faster in plain JavaScript without framework overhead.  
+> 2. **Zero Build Step:** Three simple files (index.html, styles.css, app.js) allow you to open and run the tool directly in any browser.  
+> 3. **Data formats:** CSV works well for flat, structured tabular data (like palette theme lists, color definitions, and frame indices). JSON can be reserved for nested structures if needed, such as serialized pixel array buffers for project exports.
+
+### **1\. Handling CSV for Project Storage vs. Frame Data**
+
+> * **Palette Themes:** CSV is straightforward for theme definitions and tag lists.  
+>   `tag_id,tag_name,default_hex,theme_vibrant_hex`  
+>   `1,Hair,#2A2A2A,#1E90FF`  
+>   `2,Skin,#FFE0BD,#FFD700`
+
+> * **Pixel Grid Data:** For saving multi-frame pixel art, store the pixel grid in CSV by serializing each frame as a single row containing a comma-separated array of color IDs (e.g., frame\_id,width,height,pixel\_array).
+
+### **2\. File Organization Options**
+
+Would you prefer to write all the logic in one single app.js file, or divide the JS into clear sub-modules (e.g., pixel-engine.js, vector-engine.js, palette-donut.js) using standard ES6 native imports (\<script type="module" src="app.js"\>)?  
+Dividing into ES6 modules keeps each engine isolated while still avoiding build tools or external bundlers like Webpack or Vite.  
+Let me know your preference on the JS structure, and we can start laying down the HTML scaffold and core CSS variables\!
