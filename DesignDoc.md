@@ -107,6 +107,51 @@ To keep from getting overwhelmed, divide the project into strict build phases:
 
 - - -
 
+## **1\. Expanding "Pop-Out" Donut Palette**
+
+Making the donut palette scale up on hover gives you the best of both worlds: a compact footprint while drawing, and massive, unambiguous targets when picking colors.
+
+> * **Default Behavior:** On mouse hover (or focus), the radial palette smoothly expands in scale (e.g., 1.2\\times or 1.4\\times size), giving you large, clear color arcs that are easy to target without precision-aiming.  
+> * **The On/Off Toggle:** To respect user preference without hiding the feature away, we can put the **Expand Palette on Hover** toggle inside the Settings panel. Leaving it enabled by default lets people experience how effortless color targeting feels, while giving them a quick escape hatch if they prefer a fixed UI.
+
+## **2\. Header Structure & The Pixel Flower Settings Icon**
+
+By keeping the top header fixed across the entire width of the screen, the right-side Image Shelf slides out directly *below* it. This ensures main app actions (like settings and overall project controls) never jump around or get blocked.  
+`+-----------------------------------------------------------------------------------+`  
+`|  [Opacity: ===o=== 80%]  [Ref: On]                  [Theme: Dark]   [ 🌸 Settings ] |`  
+`+-----------------------------------------------------------------------------------+`  
+`| MAIN WORKSPACE                                    | RIGHT SHELF (Slides out below)|`  
+`|                                                   |                               |`  
+`|  ( Expanded Donut Palette )     CANVAS            |  [ Frame 1 ]                  |`  
+`|    /-----------------\                            |  [ Frame 2 ]                  |`  
+`|   /   S1   |   S2     \                           |                               |`  
+`|  |---------------------|                          |  + Add Frame                  |`  
+`|  |    🌸 Center Hub    |                          |                               |`  
+`|  |---------------------|                          |                               |`  
+`|   \   S3   |   S4     /                           |                               |`  
+`|    \-----------------/                            |                               |`  
+`+-----------------------------------------------------------------------------------+`
+
+### **The Pixel Art Flower 🌸**
+
+Swapping out the cold, industrial gear/cog for a **custom pixel art flower** sets a warm, non-extractive tone right from the top right corner. Clicking the flower opens a clean, simple settings modal where users can toggle:
+
+> * \[x\] Expand Donut Palette on Hover  
+> * \[x\] Show Color Names / Hex Codes in Tooltips  
+> * \[x\] Auto-save Projects to Browser (IndexedDB)  
+> * \[ \] Dark / Light Theme Mode
+
+## **Summary of the Final Blueprint**
+
+We now have a complete, cohesive blueprint for an app that solves pixel art frustrations:
+
+> 1. **Three Purpose-Built Workspaces:** Pixel Studio (BMP/PNG with live palette binding), Raster Swapper (PNG/JPG flood-fill with tolerance), and Vector Engine (SVG tag mapping).  
+> 2. **Cognitive-Friendly Onion Skinning:** An active canvas opacity slider along the top bar so you can see through your drawing layer directly into reference images or previous frames—no jarring back-and-forth context switching required.  
+> 3. **Expansive Donut Palette:** Large, arc-shaped color slices around a central pick-hub that pop out on hover for effortless color targeting.  
+> 4. **Flexible Local Storage:** Browser-based storage via IndexedDB for instant auto-saving, plus a single-file JSON export option so users own their work offline without locked-in platforms.
+
+- - -
+
 ## 1. Automated Palette Extraction (The Initial Load)
 When a user uploads an existing pixel art image or finishes drawing their base image:
  1. **Scan the Image:** The app iterates through all raw pixel data on an offscreen canvas and builds a frequency map of every unique hex color present in the image.
