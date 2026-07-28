@@ -114,7 +114,7 @@ When a user uploads an existing pixel art image or finishes drawing their base i
  3. **Bind Pixels to Tags:** The internal pixel buffer converts from raw hex strings to these Tag IDs. Instead of saying *"this pixel is blue"*, the app now reads *"this pixel belongs to Group 3"*.
 Once that binding is done, every theme row in your table simply maps replacement colors to Color_1, Color_2, Color_3, etc. Updating a theme automatically updates every pixel bound to that group across all offscreen theme previews in the right panel.
 ## 2. Separating Color Groups (Selection Tool vs. Split)
-You're completely right that wanting to split a single color group into two—for instance, if the hair and the shoes both happen to use the exact same black (#1a1a1a), but you only want to change the shoes in Theme B—adds a layer of complexity.
+Split a single color group into two—for instance, if the hair and the shoes both happen to use the exact same black (#1a1a1a), but you only want to change the shoes in Theme B—adds a layer of complexity.
 
 ### How Group Splitting Will Work (When We Build It)
 Instead of forcing complex selection tools immediately, the cleanest way to handle splits later is:
@@ -141,10 +141,10 @@ Instead of forcing complex selection tools immediately, the cleanest way to hand
 
 ### **2\. File Organization Options**
 
-divide the JS into clear sub-modules:
+Divide the JS into clear sub-modules:
 - pixel-studio.js
 - raster-studio.js
 - vector-studio.js
 - palette.js
 
-using standard ES6 native imports (\<script type="module" src="app.js"\>).
+Using standard ES6 native imports (\<script type="module" src="app.js"\>).
