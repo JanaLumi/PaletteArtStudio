@@ -107,6 +107,76 @@ To keep from getting overwhelmed, divide the project into strict build phases:
 
 - - -
 
+Having an **opacity slider for your active drawing canvas** completely eliminates that back-and-forth reducing cognitive load. You don't have to hold the previous frame in your memory because both images are directly aligned in front of you.
+
+## **1\. Top Bar: Opacity & View Controls**
+
+Placing the active layer's opacity controls right along the top header keeps them accessible without cluttering your main drawing tools on the sides.  
+\+-------------------------------------------------------------------------------+  
+|  \[Opacity Slider: \======o=== 70%\]  \[Toggle Ref Image: ON\]  \[Onion Skin: OFF\] |  
+\+-------------------------------------------------------------------------------+
+
+> * **Active Canvas Opacity Slider:** A quick range slider (0\\% to 100\\%). Slide it down to 50\\% while checking your alignment against the background, then slide it back to 100\\% when you want total clarity for fine detailing or color picking.  
+> * **Background Reference & Onion Layers:** Sits statically underneath your active canvas, so adjusting your active layer's transparency immediately reveals the guide below.
+
+## **2\. Radial "Donut" Palette Swatches**
+
+Standard color palettes in pixel editors are notoriously tiny—often just microscopic square grids that force you to squint or miss-click. A radial palette layout solves this by maximizing surface area and giving each swatch a distinct physical position on screen.  
+                  /-------------\\  
+                 /   Color 1     \\  
+                /                 \\  
+               |  \+-------------+  |  
+               |  | Primary Pick|  |  
+               |  |  (Central)  |  |  
+               |  \+-------------+  |  
+                \\                 /  
+                 \\   Color 2     /  
+                  \\-------------/
+
+### **How the Donut Palette Works**
+
+> * **Central Hub:** A large, prominent circle in the very middle that displays your currently selected color (plus a single click to open your detailed OKLCH picker).  
+> * **Outer Slices:** The palette colors are rendered as bold, arc-shaped slices forming a ring (a donut) around that hub.  
+> * **Legibility & Comfort:** Because it's an arc, each color slice has a larger click/tap area than a tiny square box.  
+> * **Smart Slice Scaling:** To prevent tiny, unusable slices, limit the ring to a readable maximum (e.g., 12 to 16 visible primary swatches per ring). If a project uses dozens of colors, adding a simple inner/outer ring tier or page scroll keeps every swatch chunky and easy to target.  
+> * **Tooltips & Labels:** Hovering over or selecting any slice displays its name and hex code clearly in the central hub, so you always know what tag you're holding.
+
+## **3\. Right-Side Collapsible Image Shelf**
+
+Putting previous frames, reference images, or saved variations on a collapsible right panel keeps your workspace clean while keeping your history accessible.  
+\+---------------------------------------------------------+\[\>\] Panel  
+|                                                         | |      |  
+|                                                         | | \[F1\] |  
+|                                                         | | \[F2\] |  
+|                     MAIN CANVAS                         | | \[F3\] |  
+|                                                         | |      |  
+|                                                         | | \+Add |  
+\+---------------------------------------------------------+--------+
+
+> * **Slide-Out Action:** Click a quick toggle button on the right edge to push the shelf off-screen when you need full focus on your canvas.  
+> * **Drag-to-Reference:** You can click any previous frame in that right shelf to immediately set it as your background guide under your semi-transparent drawing canvas.
+
+## **Revised UI Layout Overview**
+
+\+---------------------------------------------------------------------------+  
+| TOP:  \[Opacity: \===o=== 80%\]   \[Ref: Frame 1\]   \[Export Project\]          |  
+\+---------------------------------------------------------------------------+  
+| LEFT / BOTTOM          | CENTER                 | RIGHT (Collapsible)     |  
+|                        |                        |                         |  
+|  ( Donut Palette )     |     MAIN CANVAS        |  \[\>\] Image History      |  
+|    /-----------\\       |    (Draw Layer)        |  \+-------------------+  |  
+|   /  S1  |  S2  \\      |         |              |  | \[ Frame 1 \]       |  |  
+|  |---------------+|     |         v              |  | \[ Frame 2 \]       |  |  
+|  | | Center Pick| |    |    (Ref / Onion Layer) |  | \[ Reference.png \] |  |  
+|  |---------------+|     |                        |  \+-------------------+  |  
+|   \\  S3  |  S4  /      |                        |                         |  
+|    \\-----------/       |                        |                         |  
+\+---------------------------------------------------------------------------+
+
+By combining a top opacity slider, a high-visibility donut palette, and a slide-out frame shelf, you get a pixel editor that directly caters to visual clarity and low cognitive effort.
+
+- - -
+
 ## **1\. Expanding "Pop-Out" Donut Palette**
 
 Making the donut palette scale up on hover gives you the best of both worlds: a compact footprint while drawing, and massive, unambiguous targets when picking colors.
